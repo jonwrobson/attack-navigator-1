@@ -4,9 +4,23 @@
   text-align: center;
 }
 
+.sidebar-content {
+  margin: 1em 0;
+}
+
 .mitigation-table {
   width: 96%;
   margin: 8px auto auto auto;
+}
+
+.mitigation-table, .mitigation-table th, .mitigation-table td {
+  @include adaptive-color("color", color(dark-1), color(light));
+  @include adaptive-color("background-color", darken(color(panel-light), 8%), lighten(color(dark-3), 8%));
+}
+
+.mitigation-table caption{
+  text-align: left;
+  padding: 1em;
 }
 
 .mitigation-component-container {
@@ -14,20 +28,23 @@
   width: 100%;
 }
 
-tr.mitigation-table-row {
-  height: 1em;
+.mitigation-table-row {
+  cursor: context-menu;
+  height: 2em !important;
+}
+
+.mitigation-table-row td, .mitigation-table-header th {
+  padding-left: .5em !important; 
+  padding-right: .5em !important; 
 }
 
 .mitigation-table-header {
-  height: 2em;
+  height: 4em !important;
 }
 
-tr.mitigation-table-row :hover {
-  background-color: black;
-}
-
-tr.mitigation-table-row.highlighted {
-  background-color: #60c5ff;
+.mitigation-table tr:hover td,
+.mitigation-table-row.highlighted td {
+  background-color: color(cell-highlight-color);
 }
 
 .mat-column-framework {
@@ -52,17 +69,6 @@ tr.mitigation-table-row.highlighted {
   margin:20px;
 }
 
-tr.mitigations-component-detail-row {
-  height: 0;
-}
-
-tr.mitigations-component-element-row:not(.mitigations-component-expanded-row):hover {
-  background: #f5f5f5;
-}
-
-tr.mitigations-component-element-row:not(.mitigations-component-expanded-row):active {
-  background: #efefef;
-}
 
 .mitigations-component-element-row td {
   border-bottom-width: 0;
@@ -78,12 +84,6 @@ tr.mitigations-component-element-row:not(.mitigations-component-expanded-row):ac
 .mitigations-component-element-header {
   padding-top: 2px;
   font-weight: bold;
-  font-size: 12px;
-}
-
-.mitigations-component-element-content {
-  font-weight: lighter;
-  font-size: 12px;
 }
 
 .mitigations-component-element-content a {
@@ -95,12 +95,10 @@ tr.mitigations-component-element-row:not(.mitigations-component-expanded-row):ac
 }
 
 .mitigations-component button {
-  font-size: 12px;
   margin: 10px 10px 0px 0px;
 }
 
 .mitigations-component-list-item {
-  font-size: 12px;
   height: 2em !important;
 }
 
@@ -113,7 +111,3 @@ tr.mitigations-component-element-row:not(.mitigations-component-expanded-row):ac
   width: 98%;
   height: 4em;
 }
-
-// .mitigations-component-buttongroup {
-  
-// }

@@ -27,23 +27,23 @@
               <div class="technique-mappings-component-element-content">
                 {{element.description}}
               </div>
-              <div class="technique-mappings-component-element-header">
+              <div class="technique-mappings-component-element-header" [hidden]="this.techniqueToNistCount(element) == 0">
                 NIST
               </div>
-              <div class="technique-mappings-component-element-content">
+              <div class="technique-mappings-component-element-content" [hidden]="this.techniqueToNistCount(element) == 0">
                 <a *ngFor="let nist of this.techniqueToNist(element)" target="_blank"
                   [href]="'https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/control?version=5.1&number=' + nist.slice(3, nist.length)">{{nist}}</a>
               </div>
-              <div class="technique-mappings-component-element-header">
+              <div class="technique-mappings-component-element-header" [hidden]="this.techniqueToCisCount(element) == 0">
                 CIS
               </div>
-              <div class="technique-mappings-component-element-content">
+              <div class="technique-mappings-component-element-content" [hidden]="this.techniqueToCisCount(element) == 0">
                 {{this.techniqueToCis(element).join(', ')}}
               </div>
-              <div class="technique-mappings-component-element-header">
+              <div class="technique-mappings-component-element-header" [hidden]="this.techniqueToAsvsCount(element) == 0">
                 ASVS
               </div>
-              <div class="technique-mappings-component-element-content">
+              <div class="technique-mappings-component-element-content" [hidden]="this.techniqueToAsvsCount(element) == 0">
                 {{this.techniqueToAsvs(element).join(', ')}}
               </div>
             </div>

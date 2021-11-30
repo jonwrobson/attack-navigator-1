@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ViewModel, ViewModelsService } from '../../viewmodels.service';
 import { DataService, Technique } from '../../data.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -7,6 +7,7 @@ import { scoredMitigationVM } from '../scored-mitigation-vm';
 
 @Component({
     selector: 'technique-mappings',
+    encapsulation: ViewEncapsulation.None,
     templateUrl: './technique-mappings.component.html',
     styleUrls: ['./technique-mappings.component.scss'],
     animations: [
@@ -56,7 +57,7 @@ export class TechniqueMappingsComponent implements OnInit {
     }
 
     techniqueToNist(technique: Technique): string[] {
-        return this.viewModel.controlFramework.getTechniqueMapping(technique, this.viewModel.domainVersionID)?.Mappings.Nist.map(x => x.subcategory.id);
+        return this.viewModel.controlFramework.getTechniqueMapping(technique, this.viewModel.domainVersionID)?.Mappings.Nist.map(x => x.subcategory.id).sort((a, b) => a > b ? 1 : 0);
     }
 
     techniqueToNistCount(technique: Technique) {
@@ -64,7 +65,7 @@ export class TechniqueMappingsComponent implements OnInit {
     }
 
     techniqueToCis(technique: Technique): string[] {
-        return this.viewModel.controlFramework.getTechniqueMapping(technique, this.viewModel.domainVersionID)?.Mappings.Cis.map(x => x.cisSubControlId);
+        return this.viewModel.controlFramework.getTechniqueMapping(technique, this.viewModel.domainVersionID)?.Mappings.Cis.map(x => x.cisSubControlId).sort((a, b) => a > b ? 1 : 0);
     }
 
     techniqueToCisCount(technique: Technique): number {
@@ -72,7 +73,7 @@ export class TechniqueMappingsComponent implements OnInit {
     }
 
     techniqueToAsvs(technique: Technique): string[] {
-        return this.viewModel.controlFramework.getTechniqueMapping(technique, this.viewModel.domainVersionID)?.Mappings.Asvs.map(x => x.itemId);
+        return this.viewModel.controlFramework.getTechniqueMapping(technique, this.viewModel.domainVersionID)?.Mappings.Asvs.map(x => x.itemId).sort((a, b) => a > b ? 1 : 0);
     }
 
     techniqueToAsvsCount(technique: Technique): number {

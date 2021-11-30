@@ -9,26 +9,36 @@
   margin: 8px auto auto auto;
 }
 
-.technique-mappings-component-container {
-  margin: 25px auto auto auto;
-  width: 100%;
-  padding-bottom: 20px;
+.technique-mappings-table caption{
+  text-align: left;
+  padding: 1em;
+}
+
+.technique-mappings-table, .technique-mappings-table th, .technique-mappings-table td {
+  @include adaptive-color("color", color(dark-1), color(light));
+  @include adaptive-color("background-color", darken(color(panel-light), 8%), lighten(color(dark-3), 8%));
+}
+
+.technique-mappings-table th, .technique-mappings-table td {
+  padding-left: .5em !important; 
+  padding-right: .5em !important;   
+}
+
+.technique-mappings-component-expanded-row td {
+  background-color: color(cell-highlight-color)  !important;
 }
 
 tr.technique-mappings-table-row {
-  height: 1em;
+  height: 2em !important;
 }
 
 .technique-mappings-table-header {
-  height: 2em;
+  height: 4em !important;
+  @include adaptive-color("background-color", darken(color(panel-light), 8%), lighten(color(dark-3), 8%));
 }
 
-tr.technique-mappings-table-row :hover {
-  background-color: black;
-}
-
-tr.technique-mappings-table-row.highlighted {
-  background-color: #60c5ff;
+.technique-mappings-component-element-row:hover td {
+  background-color: color(cell-highlight-color) !important;
 }
 
 .mat-column-framework {
@@ -53,19 +63,16 @@ tr.technique-mappings-table-row.highlighted {
 }
 
 tr.technique-mappings-component-detail-row {
-  height: 0;
+  height: 0 !important;
 }
 
-tr.technique-mappings-component-element-row:not(.technique-mappings-component-expanded-row):hover {
-  background: #f5f5f5;
-}
-
-tr.technique-mappings-component-element-row:not(.technique-mappings-component-expanded-row):active {
-  background: #efefef;
+.technique-mappings-component-detail-row td {
+  background-color: darken(color(cell-highlight-color), 50%) !important;
 }
 
 .technique-mappings-component-element-row td {
   border-bottom-width: 0;
+  cursor: context-menu;
 }
 
 .technique-mappings-component-element-detail {
@@ -78,12 +85,6 @@ tr.technique-mappings-component-element-row:not(.technique-mappings-component-ex
 .technique-mappings-component-element-header {
   padding-top: 2px;
   font-weight: bold;
-  font-size: 12px;
-}
-
-.technique-mappings-component-element-content {
-  font-weight: lighter;
-  font-size: 12px;
 }
 
 .technique-mappings-component-element-content a {
@@ -95,12 +96,10 @@ tr.technique-mappings-component-element-row:not(.technique-mappings-component-ex
 }
 
 .technique-mappings-component button {
-  font-size: 12px;
   margin: 10px 10px 0px 0px;
 }
 
 .technique-mappings-component-list-item {
-  font-size: 12px;
   height: 2em !important;
 }
 

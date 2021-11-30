@@ -1,4 +1,8 @@
-.mat-dialog-container {
+@import "../../../colors.scss";
+
+.mapping-dialog-container {
+  @include adaptive-color("color", color(dark-1), color(light));
+  @include adaptive-color("background-color", darken(color(panel-light), 8%), lighten(color(dark-3), 8%));
   padding: 0;
   height: 99%;
   width: 99%;
@@ -27,16 +31,10 @@ th {
   padding: 0px 10px 0px 10px;
 }
 
-.mappings-dialog-content-mat-table tr:hover,
-tr:hover,
-tr:hover td {
-  background: rgb(214, 208, 255);
-}
-
-.mappings-dialog-content-mat-table td:nth-child(even),
-th:nth-child(even) {
-  background: #EEE
-}
+// .mappings-dialog-content-mat-table td:nth-child(even), 
+// .mappings-dialog-content-mat-table th:nth-child(even) {
+//   background: #EEE
+// }
 
 .mapping-dialog-nist-table {
   width: 100%;
