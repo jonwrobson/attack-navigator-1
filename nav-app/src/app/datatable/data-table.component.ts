@@ -234,7 +234,7 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
             const blob = new Blob([data], { type: "application/octet-stream" });
             const filename = this.viewModel.name.replace(/ /g, "_") + ".xlsx";
             this.saveBlob(blob, filename);
-        });
+        }).catch(err => { console.log(err); });   // end save file
     }
 
     /**
@@ -327,11 +327,7 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
     isScrollUp = true;
     handleScroll = (e) => {
         const diff = this.scrollRef.nativeElement.scrollTop - this.previousScrollTop;
-        if (!this.isScrollUp && diff < 0) {
-            this.isScrollUp = diff < 0;
-            this.calculateScrollHeight();
-            this.previousScrollTop = this.scrollRef.nativeElement.scrollTop;
-        } else if (this.isScrollUp && diff > 0) {
+        if ((!this.isScrollUp && diff < 0) || (this.isScrollUp && diff > 0)) {
             this.isScrollUp = diff < 0;
             this.calculateScrollHeight();
             this.previousScrollTop = this.scrollRef.nativeElement.scrollTop;

@@ -131,7 +131,7 @@ export class ControlFramework {
         mappings.asvs = this.getAsvsIdsForNistItems([x]);
         mappings.cis = this.getCisItemsByNistSubCatId(x.subcategory.id);
         return mappings;
-      }).sort((a, b) => a.nist.mappingGroupingId < b.nist.mappingGroupingId ? -1 : 1);
+      }).sort();
     }
 
     return this.allNistItemsWithMappingsCache;

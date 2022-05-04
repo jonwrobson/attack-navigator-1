@@ -119,10 +119,7 @@ export class ViewModelsService {
                             misses++;
                         } else { //technique exists
                             let score = vm.getTechniqueVM_id(technique_id).score;
-                            if (score == "") {
-                                scoreValue = 0;
-                                misses++;
-                            } else if (isNaN(Number(score))) {
+                            if (score == "" || Number.isNaN(Number(score))) {
                                 scoreValue = 0;
                                 misses++;
                             } else {

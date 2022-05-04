@@ -97,7 +97,7 @@ export abstract class Cell {
         // if (this.viewModel.highlightedTechnique && this.viewModel.highlightedTechnique.technique_tactic_union_id == this.technique.technique_tactic_union_id) return "black"
         if (tvm.color) return tinycolor.mostReadable(this.emulate_alpha(tvm.color), ["white", "black"]); 
         if (this.viewModel.layout.showAggregateScores && tvm.aggregateScoreColor) return tinycolor.mostReadable(this.emulate_alpha(tvm.aggregateScoreColor), ["white", "black"]);
-        if (tvm.score && !isNaN(Number(tvm.score))) return tinycolor.mostReadable(this.emulate_alpha(tvm.scoreColor), ["white", "black"]);
+        if (tvm.score && !Number.isNaN(Number(tvm.score))) return tinycolor.mostReadable(this.emulate_alpha(tvm.scoreColor), ["white", "black"]);
         else return this.isDarkTheme ? "white" : "black";
     }
 
@@ -124,7 +124,7 @@ export abstract class Cell {
         // don't display if disabled or highlighted
         if (!tvm.enabled || this.isHighlighted) return null;
         if (tvm.color) return { "background": this.emulate_alpha(tvm.color) }
-        if (this.viewModel.layout.showAggregateScores && !isNaN(Number(tvm.aggregateScore))) return { "background": this.emulate_alpha(tvm.aggregateScoreColor) }
+        if (this.viewModel.layout.showAggregateScores && !Number.isNaN(Number(tvm.aggregateScore))) return { "background": this.emulate_alpha(tvm.aggregateScoreColor) }
         if (tvm.score) return { "background": this.emulate_alpha(tvm.scoreColor) }
         // return tvm.enabled && tvm.score && !tvm.color && !(this.viewModel.highlightedTechnique && this.viewModel.highlightedTechnique.technique_id == technique.technique_id)
     }
