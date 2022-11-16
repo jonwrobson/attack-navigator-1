@@ -112,7 +112,7 @@ export class MappingsExporter {
 
   public saveBlob(blob, filename) {
     if (is.ie()) { //internet explorer
-      window.navigator.msSaveBlob(blob, filename)
+      (window.navigator as any).msSaveBlob(blob, filename)
     } else {
       var svgUrl = URL.createObjectURL(blob);
       var downloadLink = document.createElement("a");

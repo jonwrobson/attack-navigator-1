@@ -15,7 +15,7 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
-    client:{
+    client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     preprocessors: {
@@ -41,7 +41,7 @@ module.exports = function (config) {
         { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
       ]
     },
-    
+
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
@@ -55,7 +55,11 @@ module.exports = function (config) {
       }
     },
     singleRun: false,
-    webpack: { node: { fs: 'empty', } }, // https://github.com/angular/angular-cli/issues/8357
+    webpack: {
+      node: {
+        "stream": require.resolve("stream-browserify")
+      }
+    }, // https://github.com/angular/angular-cli/issues/8357
 
     // For code coverage
     files: [
@@ -65,8 +69,8 @@ module.exports = function (config) {
       'src/**/*.js': ['coverage']
     },
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      type: 'html',
+      dir: 'coverage/'
     }
 
   });
