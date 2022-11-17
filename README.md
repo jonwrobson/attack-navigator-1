@@ -3,7 +3,9 @@
 
 I have created this fork to add a view on mitigations for selected techniques. There is a new section of controls at the top of any Enterprise tab. Behind the mitigations is a set of mapped NIST CSF v1.1 high level requirements as well as CIS and OWASP ASVS controls and standards. The intention is to be able to issue security requirements to mitigate an attack chain.
 
-[![build status](https://github.com/mitre-attack/attack-navigator/workflows/Build/badge.svg)](https://github.com/mitre-attack/attack-navigator/actions)
+Now running Angular 14!
+
+[![Azure Static Web Apps CI/CD](https://github.com/jonwrobson/attack-navigator-talon-design/actions/workflows/azure-static-web-apps-happy-field-007f63b03.yml/badge.svg?branch=master)](https://github.com/jonwrobson/attack-navigator-talon-design/actions/workflows/azure-static-web-apps-happy-field-007f63b03.yml)
 
 # ATT&CK® Navigator
 
